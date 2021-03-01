@@ -10,10 +10,12 @@ RUN apt-get update &&\
 
 RUN \ 
     pip3 install --no-cache-dir Cython
-
 RUN pip3 install --upgrade pip
-
 RUN pip3 install Cython
+
+RUN export LC_ALL=C.UTF-8
+RUN export LANG=C.UTF-8
+
 
 # Flask
 
