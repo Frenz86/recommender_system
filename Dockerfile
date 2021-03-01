@@ -15,18 +15,15 @@ RUN pip3 install --upgrade pip
 
 RUN pip3 install Cython
 
-
-# exposing default port for streamlit
-EXPOSE 5000
+# Flask
 
 WORKDIR /app
-
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
 COPY requirements.txt requirements.txt
-
 RUN pip3 install -r requirements.txt
-
+EXPOSE 5000
 COPY . .
-
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD ["flask", "run"]
 
 
