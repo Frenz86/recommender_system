@@ -16,10 +16,8 @@ RUN pip3 install --upgrade pip
 RUN pip3 install Cython
 
 # exposing default port for streamlit
-EXPOSE 8501
+EXPOSE 5000
 
-# making directory of app
-WORKDIR /streamlit-docker
 
 # copy over requirements
 COPY requirements.txt ./requirements.txt
