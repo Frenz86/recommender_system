@@ -8,6 +8,13 @@ RUN apt-get update &&\
     apt-get install python3-pip -y &&\
     apt-get install graphviz -y
 
+RUN \ 
+    pip3 install --no-cache-dir Cython
+
+RUN pip3 install --upgrade pip
+
+RUN pip3 install Cython
+
 COPY ./requirements.txt /app/requirements.txt
 
 # exposing default port for streamlit
