@@ -15,19 +15,18 @@ RUN pip3 install --upgrade pip
 
 RUN pip3 install Cython
 
-COPY ./requirements.txt /app/requirements.txt
 
 # exposing default port for streamlit
 EXPOSE 5000
 
 WORKDIR /app
 
+COPY requirements.txt requirements.txt
+
 RUN pip3 install -r requirements.txt
 
-COPY . /app
+COPY . .
 
-ENTRYPOINT [ "python" ]
-
-CMD [ "app.py" ]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
 
 
