@@ -8,7 +8,7 @@ RUN apt-get update &&\
     apt-get install python3-pip -y &&\
     apt-get install graphviz -y
 
-
+COPY ./requirements.txt /app/requirements.txt
 
 # exposing default port for streamlit
 EXPOSE 5000
