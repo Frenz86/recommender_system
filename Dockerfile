@@ -13,19 +13,16 @@ RUN \
 RUN pip3 install --upgrade pip
 RUN pip3 install Cython
 
-RUN export LC_ALL=C.UTF-8
-RUN export LANG=C.UTF-8
-
-
 # Flask
 
+RUN mkdir /app
+# navigate to this work directory
 WORKDIR /app
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
-EXPOSE 5000
+#Copy all files
 COPY . .
-CMD ["flask", "run"]
+# Install dependencies
+RUN pip3 install -r requirements.txt
+# Run
+CMD ["python3","app.py"]
 
 
